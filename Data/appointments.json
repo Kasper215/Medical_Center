@@ -28,5 +28,15 @@
     "Cost": 2500,
     "Id": 3,
     "CreatedAt": "2024-04-15T16:20:00"
+  },
+  {
+    "PatientId": 1,
+    "DoctorId": 1,
+    "DateTime": "2026-04-17T08:00:00",
+    "Service": "efwefwef",
+    "Diagnosis": "",
+    "Cost": 0,
+    "Id": 4,
+    "CreatedAt": "2026-04-15T22:57:24.6213188+03:00"
   }
 ]

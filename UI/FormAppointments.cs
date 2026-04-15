@@ -26,26 +26,34 @@ public class FormAppointments : Form
         this.Size = new Size(1000, 600);
         this.StartPosition = FormStartPosition.CenterParent;
 
-        var panelLeft = new Panel { Dock = DockStyle.Left, Width = 350, Padding = new Padding(10) };
+        var panelLeft = new FlowLayoutPanel 
+        { 
+            Dock = DockStyle.Left, 
+            Width = 350, 
+            Padding = new Padding(15), 
+            FlowDirection = FlowDirection.TopDown,
+            WrapContents = false
+        };
         
-        var lblDoc = new Label { Text = "Врач:", Location = new Point(10, 20), Size = new Size(50, 20) };
-        _cmbDoctors = new ComboBox { Location = new Point(70, 17), Width = 260, DropDownStyle = ComboBoxStyle.DropDownList };
+        var rowDoc = new Panel { Width = 320, Height = 40, Margin = new Padding(0) };
+        var lblDoc = new Label { Text = "Врач:", Location = new Point(0, 8), AutoSize = true };
+        _cmbDoctors = new ComboBox { Location = new Point(60, 5), Width = 230, DropDownStyle = ComboBoxStyle.DropDownList };
         _cmbDoctors.DataSource = AppDI.Doctors.GetAll();
         _cmbDoctors.DisplayMember = "FullName";
         _cmbDoctors.ValueMember = "Id";
         _cmbDoctors.SelectedIndexChanged += (s, e) => LoadSchedule();
+        rowDoc.Controls.AddRange(new Control[] { lblDoc, _cmbDoctors });
 
-        // MonthCalendar doesn't scale font properly in winforms sometimes, so we leave it as is
-        _calendar = new MonthCalendar { Location = new Point(70, 60), MaxSelectionCount = 1 };
+        _calendar = new MonthCalendar { MaxSelectionCount = 1, Margin = new Padding(0, 10, 0, 10) };
         _calendar.DateChanged += (s, e) => LoadSchedule();
 
-        _btnAdd = new Button { Text = "Записать на приём", Location = new Point(70, 240), Width = 260 };
+        _btnAdd = new Button { Text = "Записать на приём", Width = 300, Height = 45, Margin = new Padding(0, 10, 0, 0) };
         _btnAdd.Click += (s, e) => BookSelected();
 
-        _btnDelete = new Button { Text = "Перенести / Отменить запись", Location = new Point(70, 290), Width = 260 };
+        _btnDelete = new Button { Text = "Перенести / Отменить запись", Width = 300, Height = 45, Margin = new Padding(0, 10, 0, 0) };
         _btnDelete.Click += (s, e) => CancelSelected();
 
-        panelLeft.Controls.AddRange(new Control[] { lblDoc, _cmbDoctors, _calendar, _btnAdd, _btnDelete });
+        panelLeft.Controls.AddRange(new Control[] { rowDoc, _calendar, _btnAdd, _btnDelete });
 
         _grid = new DataGridView
         {
