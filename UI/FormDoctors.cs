@@ -31,13 +31,13 @@ public class FormDoctors : Form
         _txtSearch = new TextBox { Location = new Point(150, 22), Width = 200 };
         _txtSearch.TextChanged += (s, e) => LoadData();
         
-        _btnAdd = new Button { Text = "Добавить", Location = new Point(370, 18), Width = 110 };
+        _btnAdd = new Button { Text = "Добавить", Location = new Point(370, 17), Width = 120 };
         _btnAdd.Click += (s, e) => { new FormDoctorEdit(null).ShowDialog(); LoadData(); };
 
-        _btnEdit = new Button { Text = "Редактировать", Location = new Point(490, 18), Width = 130 };
+        _btnEdit = new Button { Text = "Редактировать", Location = new Point(500, 17), Width = 150 };
         _btnEdit.Click += (s, e) => EditSelected();
 
-        _btnDelete = new Button { Text = "Удалить", Location = new Point(630, 18), Width = 90 };
+        _btnDelete = new Button { Text = "Удалить", Location = new Point(660, 17), Width = 100 };
         _btnDelete.Click += (s, e) => DeleteSelected();
 
         panelTop.Controls.AddRange(new Control[] { lblSearch, _txtSearch, _btnAdd, _btnEdit, _btnDelete });
@@ -109,6 +109,7 @@ public class FormDoctorEdit : Form
         _doctor = doctor ?? new Doctor();
         InitializeComponent();
         Theme.ApplyToForm(this);
+        Theme.SetPhoneFormat(_txtPhone);
     }
 
     private void InitializeComponent()
@@ -133,10 +134,10 @@ public class FormDoctorEdit : Form
         Label lbl4 = new Label { Text = "Телефон", Location = new Point(20, 180), Width = 120 };
         _txtPhone = new TextBox { Location = new Point(150, 178), Width = 200, Text = _doctor.Phone };
 
-        _btnSave = new Button { Text = "Сохранить", Location = new Point(150, 230), Width = 90 };
+        _btnSave = new Button { Text = "Сохранить", Location = new Point(110, 230), Width = 120 };
         _btnSave.Click += BtnSave_Click;
 
-        _btnCancel = new Button { Text = "Отмена", Location = new Point(260, 230), Width = 90 };
+        _btnCancel = new Button { Text = "Отмена", Location = new Point(240, 230), Width = 120 };
         _btnCancel.Click += (s, e) => this.Close();
 
         this.Controls.AddRange(new Control[] { lbl1, _txtLastName, lbl2, _txtFirstName, lbl8, _txtMiddleName, lbl3, _txtSpecialty, lbl4, _txtPhone, _btnSave, _btnCancel });

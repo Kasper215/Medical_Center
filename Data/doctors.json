@@ -1,0 +1,29 @@
+[
+  {
+    "LastName": "Иванов",
+    "FirstName": "Алексей",
+    "MiddleName": "Петрович",
+    "Specialty": "Терапевт",
+    "Phone": "+7 (999) 111-22-33",
+    "Id": 1,
+    "CreatedAt": "2024-04-01T09:00:00"
+  },
+  {
+    "LastName": "Белякова",
+    "FirstName": "Анна",
+    "MiddleName": "Юрьевна",
+    "Specialty": "Кардиолог",
+    "Phone": "+7 (999) 444-55-66",
+    "Id": 2,
+    "CreatedAt": "2024-04-02T10:30:00"
+  },
+  {
+    "LastName": "Сидоров",
+    "FirstName": "Евгений",
+    "MiddleName": "Олегович",
+    "Specialty": "Невролог",
+    "Phone": "+7 (999) 777-88-99",
+    "Id": 3,
+    "CreatedAt": "2024-04-03T11:45:00"
+  }
+]

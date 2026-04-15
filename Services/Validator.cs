@@ -1,3 +1,4 @@
+using System.Linq;
 using MedCenterApp.Models;
 
 namespace MedCenterApp.Services;
@@ -13,6 +14,20 @@ public class Validator : IValidator
             error = "Обязательные поля (Фамилия, Имя, Телефон) не могут быть пустыми.";
             return false;
         }
+
+        // Allow digits and +, -, (, ), space
+        if (!patient.Phone.All(c => char.IsDigit(c) || "+()- ".Contains(c)))
+        {
+            error = "Номер телефона содержит недопустимые символы.";
+            return false;
+        }
+
+        if (!string.IsNullOrWhiteSpace(patient.PolicyNumber) && !patient.PolicyNumber.All(char.IsDigit))
+        {
+            error = "Номер полиса должен содержать только цифры.";
+            return false;
+        }
+
         error = "";
         return true;
     }
@@ -26,6 +41,13 @@ public class Validator : IValidator
             error = "Обязательные поля (Фамилия, Имя, Специальность) не могут быть пустыми.";
             return false;
         }
+
+        if (!string.IsNullOrWhiteSpace(doctor.Phone) && !doctor.Phone.All(c => char.IsDigit(c) || "+()- ".Contains(c)))
+        {
+            error = "Номер телефона содержит недопустимые символы.";
+            return false;
+        }
+
         error = "";
         return true;
     }

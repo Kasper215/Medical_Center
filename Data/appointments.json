@@ -1,0 +1,32 @@
+[
+  {
+    "PatientId": 1,
+    "DoctorId": 1,
+    "DateTime": "2026-04-16T10:00:00",
+    "Service": "\u041F\u0435\u0440\u0432\u0438\u0447\u043D\u044B\u0439 \u043F\u0440\u0438\u0435\u043C",
+    "Diagnosis": "",
+    "Cost": 1500,
+    "Id": 1,
+    "CreatedAt": "2024-04-15T15:00:00"
+  },
+  {
+    "PatientId": 2,
+    "DoctorId": 2,
+    "DateTime": "2026-04-17T14:30:00",
+    "Service": "\u042D\u041A\u0413 \u0441 \u0440\u0430\u0441\u0448\u0438\u0444\u0440\u043E\u0432\u043A\u043E\u0439",
+    "Diagnosis": "",
+    "Cost": 2200,
+    "Id": 2,
+    "CreatedAt": "2024-04-15T15:15:00"
+  },
+  {
+    "PatientId": 3,
+    "DoctorId": 3,
+    "DateTime": "2026-04-16T12:00:00",
+    "Service": "\u041A\u043E\u043D\u0441\u0443\u043B\u044C\u0442\u0430\u0446\u0438\u044F \u043C\u0430\u043D\u0443\u0430\u043B\u044C\u043D\u043E\u0433\u043E \u0442\u0435\u0440\u0430\u043F\u0435\u0432\u0442\u0430",
+    "Diagnosis": "",
+    "Cost": 2500,
+    "Id": 3,
+    "CreatedAt": "2024-04-15T16:20:00"
+  }
+]

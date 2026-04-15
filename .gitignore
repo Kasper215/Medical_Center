@@ -5,4 +5,4 @@ packages/
 *.user
 *.suo
 *.slnx
-Data/*.json
+# Data/*.json (Removed to allow git tracking)

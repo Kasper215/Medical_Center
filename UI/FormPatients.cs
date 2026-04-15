@@ -31,16 +31,16 @@ public class FormPatients : Form
         _txtSearch = new TextBox { Location = new Point(170, 22), Width = 200 };
         _txtSearch.TextChanged += (s, e) => LoadData();
         
-        _btnAdd = new Button { Text = "Добавить", Location = new Point(400, 18), Width = 110 };
+        _btnAdd = new Button { Text = "Добавить", Location = new Point(400, 17), Width = 120 };
         _btnAdd.Click += (s, e) => { new FormPatientEdit(null).ShowDialog(); LoadData(); };
 
-        _btnEdit = new Button { Text = "Редактировать", Location = new Point(520, 18), Width = 130 };
+        _btnEdit = new Button { Text = "Редактировать", Location = new Point(530, 17), Width = 150 };
         _btnEdit.Click += (s, e) => EditSelected();
 
-        _btnDelete = new Button { Text = "Удалить", Location = new Point(660, 18), Width = 90 };
+        _btnDelete = new Button { Text = "Удалить", Location = new Point(690, 17), Width = 100 };
         _btnDelete.Click += (s, e) => DeleteSelected();
 
-        _btnHistory = new Button { Text = "История посещений", Location = new Point(760, 18), Width = 170, BackColor = Theme.PrimaryDark };
+        _btnHistory = new Button { Text = "История посещений", Location = new Point(800, 17), Width = 180, BackColor = Theme.PrimaryDark };
         _btnHistory.Click += (s, e) => ShowHistory();
 
         panelTop.Controls.AddRange(new Control[] { lblSearch, _txtSearch, _btnAdd, _btnEdit, _btnDelete, _btnHistory });
@@ -128,6 +128,8 @@ public class FormPatientEdit : Form
         _patient = patient ?? new Patient();
         InitializeComponent();
         Theme.ApplyToForm(this);
+        Theme.SetPhoneFormat(_txtPhone);
+        Theme.SetOnlyDigits(_txtPolicy);
     }
 
     private void InitializeComponent()
@@ -158,10 +160,10 @@ public class FormPatientEdit : Form
         Label lbl6 = new Label { Text = "Номер полиса", Location = new Point(20, 260), Width = 120 };
         _txtPolicy = new TextBox { Location = new Point(150, 258), Width = 220, Text = _patient.PolicyNumber };
 
-        _btnSave = new Button { Text = "Сохранить", Location = new Point(150, 310), Width = 100 };
+        _btnSave = new Button { Text = "Сохранить", Location = new Point(130, 310), Width = 120 };
         _btnSave.Click += BtnSave_Click;
 
-        _btnCancel = new Button { Text = "Отмена", Location = new Point(270, 310), Width = 100 };
+        _btnCancel = new Button { Text = "Отмена", Location = new Point(260, 310), Width = 120 };
         _btnCancel.Click += (s, e) => this.Close();
 
         this.Controls.AddRange(new Control[] { lbl1, _txtLastName, lbl2, _txtFirstName, lbl8, _txtMiddleName, lbl3, _dtpBirth, lbl4, _txtPhone, lbl5, _txtAddress, lbl6, _txtPolicy, _btnSave, _btnCancel });

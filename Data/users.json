@@ -1,0 +1,16 @@
+[
+  {
+    "Login": "admin",
+    "PasswordHash": "admin",
+    "Role": "Admin",
+    "Id": 1,
+    "CreatedAt": "2024-04-15T10:00:00"
+  },
+  {
+    "Login": "doctor1",
+    "PasswordHash": "12345",
+    "Role": "Doctor",
+    "Id": 2,
+    "CreatedAt": "2024-04-15T10:05:00"
+  }
+]

@@ -40,13 +40,13 @@ public class FormReports : Form
         Label lbl2 = new Label { Text = "По:", Location = new Point(470, 23), Width = 30, AutoSize = true };
         _dtpTo = new DateTimePicker { Location = new Point(510, 20), Width = 110, Format = DateTimePickerFormat.Short };
 
-        _btnGenerate = new Button { Text = "Сформировать", Location = new Point(630, 18), Width = 140 };
+        _btnGenerate = new Button { Text = "Сформировать", Location = new Point(630, 17), Width = 160 };
         _btnGenerate.Click += BtnGenerate_Click;
 
-        _btnExport = new Button { Text = "Экспорт в HTML", Location = new Point(780, 18), Width = 140, Enabled = false };
+        _btnExport = new Button { Text = "Экспорт в HTML", Location = new Point(800, 17), Width = 160, Enabled = false };
         _btnExport.Click += BtnExport_Click;
 
-        _btnPrint = new Button { Text = "Печать", Location = new Point(930, 18), Width = 100, Enabled = false };
+        _btnPrint = new Button { Text = "Печать", Location = new Point(970, 17), Width = 110, Enabled = false };
         _btnPrint.Click += BtnPrint_Click;
 
         panelTop.Controls.AddRange(new Control[] { _cmbReportType, lbl1, _dtpFrom, lbl2, _dtpTo, _btnGenerate, _btnExport, _btnPrint });

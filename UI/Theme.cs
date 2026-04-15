@@ -1,4 +1,5 @@
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace MedCenterApp.UI;
@@ -41,6 +42,9 @@ public static class Theme
             btn.BackColor = Primary;
             btn.ForeColor = Color.White;
             btn.Cursor = Cursors.Hand;
+            btn.Height = 35;
+            btn.TextAlign = ContentAlignment.MiddleCenter;
+            btn.Padding = new Padding(10, 0, 10, 0);
             
             if (btn.Text == "Удалить" || btn.Text == "Отменить" || btn.Text == "Отмена")
             {
@@ -71,5 +75,36 @@ public static class Theme
             foreach (Control child in pnl.Controls)
                 ApplyToControl(child);
         }
+    }
+
+    public static void SetOnlyDigits(TextBox textBox)
+    {
+        textBox.KeyPress += (s, e) => {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+                ShowErrorTip(textBox, "Разрешены только цифры");
+            }
+        };
+    }
+
+    public static void SetPhoneFormat(TextBox textBox)
+    {
+        textBox.KeyPress += (s, e) => {
+            // Allow digits, control keys, and + ( ) - space
+            char[] allowed = { '+', '(', ')', '-', ' ' };
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && !allowed.Contains(e.KeyChar))
+            {
+                e.Handled = true;
+                ShowErrorTip(textBox, "Разрешены цифры и символы +, -, (, )");
+            }
+        };
+    }
+
+    private static void ShowErrorTip(Control control, string message)
+    {
+        var tip = new ToolTip();
+        tip.ToolTipIcon = ToolTipIcon.None;
+        tip.Show(message, control, 0, control.Height + 5, 1500);
     }
 }

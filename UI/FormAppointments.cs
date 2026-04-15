@@ -26,10 +26,10 @@ public class FormAppointments : Form
         this.Size = new Size(1000, 600);
         this.StartPosition = FormStartPosition.CenterParent;
 
-        var panelLeft = new Panel { Dock = DockStyle.Left, Width = 300, Padding = new Padding(10) };
+        var panelLeft = new Panel { Dock = DockStyle.Left, Width = 350, Padding = new Padding(10) };
         
         var lblDoc = new Label { Text = "Врач:", Location = new Point(10, 20), Size = new Size(50, 20) };
-        _cmbDoctors = new ComboBox { Location = new Point(70, 18), Width = 210, DropDownStyle = ComboBoxStyle.DropDownList };
+        _cmbDoctors = new ComboBox { Location = new Point(70, 17), Width = 260, DropDownStyle = ComboBoxStyle.DropDownList };
         _cmbDoctors.DataSource = AppDI.Doctors.GetAll();
         _cmbDoctors.DisplayMember = "FullName";
         _cmbDoctors.ValueMember = "Id";
@@ -39,10 +39,10 @@ public class FormAppointments : Form
         _calendar = new MonthCalendar { Location = new Point(70, 60), MaxSelectionCount = 1 };
         _calendar.DateChanged += (s, e) => LoadSchedule();
 
-        _btnAdd = new Button { Text = "Записать на приём", Location = new Point(70, 240), Width = 210 };
+        _btnAdd = new Button { Text = "Записать на приём", Location = new Point(70, 240), Width = 260 };
         _btnAdd.Click += (s, e) => BookSelected();
 
-        _btnDelete = new Button { Text = "Перенести / Отменить запись", Location = new Point(70, 290), Width = 210 };
+        _btnDelete = new Button { Text = "Перенести / Отменить запись", Location = new Point(70, 290), Width = 260 };
         _btnDelete.Click += (s, e) => CancelSelected();
 
         panelLeft.Controls.AddRange(new Control[] { lblDoc, _cmbDoctors, _calendar, _btnAdd, _btnDelete });
@@ -171,10 +171,10 @@ public class FormBookAppointment : Form
         Label lbl3 = new Label { Text = "Услуга:", Location = new Point(20, 100) };
         _txtService = new TextBox { Location = new Point(120, 98), Width = 230 };
 
-        _btnSave = new Button { Text = "Записать", Location = new Point(120, 150), Width = 110 };
+        _btnSave = new Button { Text = "Записать", Location = new Point(100, 150), Width = 130 };
         _btnSave.Click += BtnSave_Click;
 
-        _btnCancel = new Button { Text = "Отмена", Location = new Point(240, 150), Width = 110 };
+        _btnCancel = new Button { Text = "Отмена", Location = new Point(240, 150), Width = 120 };
         _btnCancel.Click += (s, e) => this.Close();
 
         this.Controls.AddRange(new Control[] { lbl1, _cmbPatients, lbl2, _cmbTime, lbl3, _txtService, _btnSave, _btnCancel });
